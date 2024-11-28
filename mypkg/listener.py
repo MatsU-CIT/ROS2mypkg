@@ -6,11 +6,11 @@ rclpy.init()
 node = Node("listener")
 
 
-def cd(msg)
+def cb(msg):
     global node
-    node.get_logger().info("Listen: %d" % msg.data)
+    node.get_logger().info("Listen: %s" % msg)
 
 
 def main():
-    sub = node.create_subscription(Int16, "countup", cd, 10)
-    rcply.spin(node)
+    sub = node.create_subscription(Person, "person", cb, 10)
+    rclpy.spin(node)
